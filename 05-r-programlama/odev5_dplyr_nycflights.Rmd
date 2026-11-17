@@ -1,0 +1,91 @@
+---
+title: "R Ödev 5 - Furkan Akduman"
+author: "Furkan Akduman"
+date: "2025-05-28"
+output:
+  word_document: word_document
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Gerekli kutuphanelerin yüklenmesi
+library(tidyverse)
+
+# CSV dosyasını yuklenmesi
+
+flights <- read_csv(file.choose())
+
+# Veri setini kontrol etmek
+glimpse(flights)
+view(flights)
+
+###SORU 1:1 Ocak’taki tUm uCuSları seCiniz.###
+flights_jan1 <- flights %>%
+  filter(month == 1, day == 1)
+
+# Sonucları gosterelim
+flights_jan1
+
+###Soru 2: Yaz dOnemindeki tUm ucuSları seciniz###
+flights_summer <- flights %>%
+  filter(month %in% c(6, 7, 8))
+
+# Sonucları gosterelim
+flights_summer
+
+###Soru 3: Kasım ve Aralık aylarında kalkan tUm ucuSları seciniz###
+flights_nov_dec <- flights %>%
+  filter(month %in% c(11, 12))
+
+# Sonucları gosterelim
+flights_nov_dec
+
+###Soru 4: Varıs gecikmesi 2 veya daha fazla saat olan ucusları bulun###
+flights_late_arrival <- flights %>%
+  filter(arr_delay >= 120)
+
+# Sonucları gosterelim
+flights_late_arrival
+
+###Soru 5: Houston'a ucan tum ucusları bulunuz (HOU)###
+flights_houston <- flights %>%
+  filter(dest == "HOU")
+
+# Sonucları gosterelim
+flights_houston
+
+###Soru 6: American veya Delta tarafından gerceklestirilen tum ucusları bulunuz###
+flights_aa_dl <- flights %>%
+  filter(carrier %in% c("AA", "DL"))
+
+# Sonucları gosterelim
+flights_aa_dl
+
+###Soru 7: Iki saatten fazla varıs zamanı geciken ancak geç kalkmayan
+###(tam zamanında kalkıs yapan) ucusları bulunuz###
+
+flights_late_arr_ontime_dep <- flights %>%
+  filter(arr_delay > 120, dep_delay <= 0)
+
+# Sonucları gosterelim
+flights_late_arr_ontime_dep
+
+
+
+
+
+install.packages("tidyverse")   # Yalnızca bir kez kurman yeterli
+library(tidyverse)              # Her oturumda çalıştırmalısın
+
+
+
+
+
+
+
+
+

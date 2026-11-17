@@ -1,0 +1,53 @@
+---
+title: "Final.markdown"
+author: "Furkan Akduman"
+date: "2025-06-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#kutupae yuklemesi yayptım
+library(tidyverse)
+library(e1071) 
+
+students <- read_csv(file.choose())
+
+#Soru3:
+ogrenciler<-read_csv("students.csv", show_col_types = FALSE)
+S1 <- ogrenciler %>% 
+  select(Age, Gender, MathScore,ScienceScore, PassedMath)
+S1_filtered <-S1 %>% 
+  filter(Age > 16, PasssedMath == "Yes")
+
+#Soru 4:
+
+ggplot(ogrenciler,aes(x = MathScore, y = ScienceScore, color = Gender)) +
+  geom_point() +
+  labs(
+  x = "Matematik Notu"
+  y = "Fen Bilgisi Notu"
+  title = "Matematik ve Fen Notları Ilıskisi",
+  color= "Cinsiyet"
+)+
+theme_minimal()
+
+#Soru 5:
+
+math <- ogrenciler$MathScore
+istatistikler <- tibble(
+  Minimum = min(math,na.rm = TRUE),
+  Maksimum = max(math,na.rm = TRUE),
+  Ortalama = mean(math,na.rm = TRUE),
+  Medyan = median(math,na.rm = TRUE),
+  q1=quantile(math, 0.25, na.rm = TRUE),
+  q2 = quantile(math, 0.75, na.rm = TRUE),
+  IQR =IQR (math, na.rm = TRUE),
+  Carpıklık = skewness(math, na.rm = TRUE),
+  Basıklık = kurtosis(math, na.rm = TRUE)
+)
+istatistikler
+#HOCAM HIZLI HIZLI YAZDIM HEPSİNİ ÇALIŞTIRMAMDIM HATA ÇIKMASIN DİYE
+
+
