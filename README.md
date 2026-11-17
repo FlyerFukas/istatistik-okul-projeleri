@@ -1,5 +1,7 @@
 # İstatistik Bölümü Projeleri
 
+<img src=".github/kapak.png" alt="İstatistik ders projeleri: altı proje, her biri kendi sonucunun grafiğiyle." width="100%">
+
 Mimar Sinan Güzel Sanatlar Üniversitesi İstatistik bölümünde, derslerde hazırladığım proje ve ödevler. Her klasörde rapor (PDF), veri ve kullanılan model dosyası var.
 
 *Coursework projects from my BSc in Statistics (MSGSÜ): portfolio optimisation, game theory with linear programming, linear models, R and Excel. Reports are in Turkish.*
